@@ -1,12 +1,16 @@
 package com.example.lesson_02_wiring_beans;
 
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+@Component
 public class SimpleLogic implements InitializingBean {
+
 
     public SimpleLogic() {
         System.out.println("Class was created");
@@ -27,4 +31,7 @@ public class SimpleLogic implements InitializingBean {
         System.out.println("Bean is about to be destroyed");
     }
 
+    public void doSimpleWork() {
+        System.out.println("Work from SimpleLogic");
+    }
 }
