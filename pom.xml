@@ -6,7 +6,11 @@
 
     <groupId>org.example</groupId>
     <artifactId>SimpliLearn_Implement_Frameworks_DevOps_Online_Classes</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>lesson_07_mvc_and_rest</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
