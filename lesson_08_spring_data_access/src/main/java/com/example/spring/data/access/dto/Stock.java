@@ -6,7 +6,7 @@ import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Size;
 
 @Data
-@Getter @Setter @AllArgsConstructor @NoArgsConstructor
+//@Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class Stock {
 
     @NonNull
