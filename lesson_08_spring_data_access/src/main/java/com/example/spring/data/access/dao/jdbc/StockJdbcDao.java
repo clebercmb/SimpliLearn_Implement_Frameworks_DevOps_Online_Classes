@@ -21,13 +21,8 @@ public class StockJdbcDao implements StockDao {
     public Stock findById(String id) {
         String sqlquery = "SELECT id, name, price FROM stocks where id=?";
 
-        //return  jdbcTemplate.queryForObject(sqlquery, jdbcTemplate, new Object[] { id });
-
-        //jdbcTemplate.queryForObject(sqlquery, new Object[]{id}, new BeanPropertyRowMapper<>(Stock.class));
-
-        //return jdbcTemplate.queryForObject(sqlquery, new BeanPropertyRowMapper<>(Stock.class), id);
-
-        return jdbcTemplate.queryForObject(sqlquery, new Object[]{id}, new BeanPropertyRowMapper<>(Stock.class));
+        return jdbcTemplate.queryForObject(sqlquery, new BeanPropertyRowMapper<>(Stock.class), id);
+        //return jdbcTemplate.queryForObject(sqlquery, new Object[]{id}, new BeanPropertyRowMapper<>(Stock.class));
     }
 
     @Override
