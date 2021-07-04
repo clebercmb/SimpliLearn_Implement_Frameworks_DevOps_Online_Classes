@@ -9,12 +9,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="lesson_02_wiring_beans" />
         <module name="lesson_07_mvc_and_rest" />
+        <module name="lesson_08_spring_data_access" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="lesson_02_wiring_beans" options="-parameters" />
+      <module name="lesson_08_spring_data_access" options="-parameters" />
     </option>
   </component>
 </project>

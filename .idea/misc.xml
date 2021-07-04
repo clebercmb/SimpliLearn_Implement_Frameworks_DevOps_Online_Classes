@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/lesson_02_wiring_beans/pom.xml" />
+        <option value="$PROJECT_DIR$/lesson08_spring_data_access/pom.xml" />
       </list>
     </option>
   </component>
