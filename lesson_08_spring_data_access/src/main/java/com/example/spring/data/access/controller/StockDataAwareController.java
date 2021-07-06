@@ -17,6 +17,10 @@ public class StockDataAwareController {
     @Qualifier("jdbc")
     private StockDao stockDao;
 
+    public StockDataAwareController(@Qualifier("jdbc") StockDao stockDao) {
+        this.stockDao = stockDao;
+    }
+
     @GetMapping("/stock/{id}")
     public Stock getInfo(@PathVariable("id") String id) {
         Stock stock = stockDao.findById(id);
