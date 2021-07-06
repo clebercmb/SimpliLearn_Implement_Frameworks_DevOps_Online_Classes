@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 public class StockDataAwareController {
 
     @Resource
-    @Qualifier("jpa")
+    @Qualifier("redis")
     private StockDao stockDao;
 
     @GetMapping("/stock/{id}")
