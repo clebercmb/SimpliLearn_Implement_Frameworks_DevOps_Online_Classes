@@ -48,5 +48,7 @@ public class MasterHibernateAndJpaLesson03Application implements CommandLineRunn
 
         repository.deleteById(1002);
 
+        logger.info("All users -> {}", repository.findAll());
+
     }
 }
