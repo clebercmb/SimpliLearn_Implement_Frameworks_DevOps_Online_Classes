@@ -2,6 +2,7 @@ package com.example.jpaandhibernatelesson05;
 
 import com.example.jpaandhibernatelesson05.entity.Course;
 import com.example.jpaandhibernatelesson05.repository.CourseRepository;
+import com.example.jpaandhibernatelesson05.repository.StudentRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
@@ -13,16 +14,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
-class JpaAndHibernateLesson05ApplicationTests {
+class CourseRepositoryTest {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    CourseRepository repository;
+    private CourseRepository courseRepository;
+
+    @Autowired
+    private StudentRepository studentRepository;
 
     @Test
     public void findById_basic() {
-        Course course = repository.findById(1001L);
+        Course course = courseRepository.findById(1001L);
 
         assertEquals("JPA Course", course.getName());
     }
@@ -30,25 +34,25 @@ class JpaAndHibernateLesson05ApplicationTests {
     @Test
     @DirtiesContext
     public void deleteById_basic() {
-        repository.deleteById(1002L);
-        assertNull(repository.findById(1002L));
+        courseRepository.deleteById(1002L);
+        assertNull(courseRepository.findById(1002L));
     }
 
     @Test
     public void save_basic() {
-        Course course = repository.findById(1001L);
+        Course course = courseRepository.findById(1001L);
         assertEquals("JPA Course", course.getName());
         course.setName("JPA Course Updated");
-        repository.save(course);
+        courseRepository.save(course);
 
-        Course courseChanged = repository.findById(1001L);
+        Course courseChanged = courseRepository.findById(1001L);
         assertEquals("JPA Course Updated", courseChanged.getName());
     }
 
     @Test
     @DirtiesContext
     public void playWithEntityManager() {
-        repository.playWithEntityManager();
+        courseRepository.playWithEntityManager();
     }
 
 }

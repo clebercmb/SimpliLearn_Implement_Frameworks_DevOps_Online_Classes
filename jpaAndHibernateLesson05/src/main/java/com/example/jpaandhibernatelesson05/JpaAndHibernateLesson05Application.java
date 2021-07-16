@@ -1,7 +1,7 @@
 package com.example.jpaandhibernatelesson05;
 
-import com.example.jpaandhibernatelesson05.entity.Course;
 import com.example.jpaandhibernatelesson05.repository.CourseRepository;
+import com.example.jpaandhibernatelesson05.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,10 @@ public class JpaAndHibernateLesson05Application implements CommandLineRunner {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private CourseRepository repository;
+    private CourseRepository courseRepository;
+
+    @Autowired
+    private StudentRepository studentRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(JpaAndHibernateLesson05Application.class, args);
@@ -23,6 +26,9 @@ public class JpaAndHibernateLesson05Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        repository.playWithEntityManager();
+        courseRepository.playWithEntityManager();
+        studentRepository.saveStudentWithPassport();
+
+
     }
 }
