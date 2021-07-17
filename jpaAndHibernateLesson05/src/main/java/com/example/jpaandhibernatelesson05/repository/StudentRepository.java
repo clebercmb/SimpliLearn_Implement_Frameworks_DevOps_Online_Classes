@@ -1,6 +1,7 @@
 package com.example.jpaandhibernatelesson05.repository;
 
 
+import com.example.jpaandhibernatelesson05.entity.Course;
 import com.example.jpaandhibernatelesson05.entity.Passport;
 import com.example.jpaandhibernatelesson05.entity.Student;
 import org.slf4j.Logger;
@@ -65,4 +66,29 @@ public class StudentRepository {
         student.setName("Hulk - Updated");
         // Persistence Context (student++, passport++)
     }
+
+    public void insertHardCodedStudentAndCourse() {
+        Student student = new Student();
+        student.setName("Thanos");
+        em.persist(student);
+
+        Course course = new Course();
+        course.setName("Microservices");
+        em.persist(course);
+
+        student.addCourse(course);
+        course.addStudent(student);
+        em.persist(student);
+    }
+
+    public void insertCodedStudentAndCourse(Student student, Course course) {
+        student.addCourse(course);
+        course.addStudent(student);
+
+        em.persist(student);
+        em.persist(course);
+    }
+
+
+
 }

@@ -1,5 +1,7 @@
 package com.example.jpaandhibernatelesson05;
 
+import com.example.jpaandhibernatelesson05.entity.Course;
+import com.example.jpaandhibernatelesson05.entity.Student;
 import com.example.jpaandhibernatelesson05.repository.CourseRepository;
 import com.example.jpaandhibernatelesson05.repository.StudentRepository;
 import org.slf4j.Logger;
@@ -26,9 +28,25 @@ public class JpaAndHibernateLesson05Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        courseRepository.playWithEntityManager();
-        studentRepository.saveStudentWithPassport();
+        //courseRepository.playWithEntityManager();
+        //studentRepository.saveStudentWithPassport();
 
+        //courseRepository.addHardCodedReviewsForCourse();
 
+        //Set<Review> reviews = new HashSet<>();
+        //reviews.add(Review.builder().rating("4").description("Greats Hands-off").build());
+        //reviews.add(Review.builder().rating("5").description("Hats off").build());
+        //courseRepository.addReviewsForCourse(1003L, reviews);
+
+        //studentRepository.insertHardCodedStudentAndCourse();
+
+        Student student = new Student();
+        student.setName("Thanos");
+
+        Course course = new Course();
+        course.setName("Microservices");
+
+        studentRepository.insertCodedStudentAndCourse(student, course);
     }
+
 }

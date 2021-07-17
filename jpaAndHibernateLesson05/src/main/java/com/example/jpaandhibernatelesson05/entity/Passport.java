@@ -25,4 +25,10 @@ public class Passport {
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "passport")
     private Student student;
 
+    @Override
+    public String toString() {
+        return "Passport{" +
+                "number='" + number + '\'' +
+                '}';
+    }
 }
