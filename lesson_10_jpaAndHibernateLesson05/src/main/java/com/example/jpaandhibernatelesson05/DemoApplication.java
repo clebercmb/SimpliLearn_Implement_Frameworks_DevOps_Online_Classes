@@ -1,8 +1,8 @@
 package com.example.jpaandhibernatelesson05;
 
-import com.example.jpaandhibernatelesson05.entity.Course;
-import com.example.jpaandhibernatelesson05.entity.Student;
+import com.example.jpaandhibernatelesson05.entity.*;
 import com.example.jpaandhibernatelesson05.repository.CourseRepository;
+import com.example.jpaandhibernatelesson05.repository.EmployeeRepository;
 import com.example.jpaandhibernatelesson05.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,8 +11,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.math.BigDecimal;
+
 @SpringBootApplication
-public class JpaAndHibernateLesson05Application implements CommandLineRunner {
+public class DemoApplication implements CommandLineRunner {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -22,8 +24,11 @@ public class JpaAndHibernateLesson05Application implements CommandLineRunner {
     @Autowired
     private StudentRepository studentRepository;
 
+    @Autowired
+    private EmployeeRepository employeeRepository;
+
     public static void main(String[] args) {
-        SpringApplication.run(JpaAndHibernateLesson05Application.class, args);
+        SpringApplication.run(DemoApplication.class, args);
     }
 
     @Override
@@ -40,13 +45,25 @@ public class JpaAndHibernateLesson05Application implements CommandLineRunner {
 
         //studentRepository.insertHardCodedStudentAndCourse();
 
-        Student student = new Student();
-        student.setName("Thanos");
+        //Student student = new Student();
+        //student.setName("Thanos");
 
-        Course course = new Course();
-        course.setName("Microservices");
+        //Course course = new Course();
+        //course.setName("Microservices");
 
-        studentRepository.insertCodedStudentAndCourse(student, course);
+        //studentRepository.insertCodedStudentAndCourse(student, course);
+
+
+
+        employeeRepository.insert(new PartTimeEmployee("Jack", new BigDecimal("10000")));
+        employeeRepository.insert(new FullTimeEmployee("Jack", new BigDecimal("10000")));
+
+        //logger.info("All Employees -> {}", employeeRepository.retrieveAllEmployees());
+
+        logger.info("All FullTimeEmployees -> {}", employeeRepository.retrieveAllFullTimeEmployees());
+
+        logger.info("All PartTimeEmployees -> {}", employeeRepository.retrieveAllPartTimeEmployees());
+
     }
 
 }
